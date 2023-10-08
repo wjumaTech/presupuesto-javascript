@@ -4,14 +4,14 @@
 <head>
   <meta charset="utf-8">
   <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-  <link type="text/css" rel="stylesheet" href="../css/styles.css" />
+  <link type="text/css" rel="stylesheet" href="./css/styles.css" />
   <title>Gasto semanal</title>
 </head>
 
 <body>
   <main class="row">
     <div class="col-12 mt-5">
-      <h1 class="card-title text-center">Gasto Semanal</h1>
+      <h1 id="title" class="text-center">Gasto Semanal</h1>
     </div>
     <div class="col-6 offset-3 mt-5">
       <div class="card">
@@ -19,14 +19,18 @@
           <div class="row">
             <div class="col-12 col-sm-12 col-md-6">
               <h3 class="formulario text-center">Añade tus gastos</h3>
-              <form class="agregar-gasto">
+              <form class="agregar-gasto" novalidate>
+                <!-- <div class="alert alert-danger alert-dismissible" role="alert">
+  <strong>Error!</strong> Ambos campos son obligatorios.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div> -->
                 <div class="mb-3">
-                  <label for="gasto">Gasto</label>
-                  <input type="text" class="form-control" placeholder="Añade un gasto a tu presupuesto">
+                  <label for="nombre">Gasto</label>
+                  <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Añade un gasto a tu presupuesto" required>
                 </div>
                 <div class="mb-3">
                   <label for="cantidad">Cantidad</label>
-                  <input type="number" class="form-control" placeholder="Cantidad en $">
+                  <input id="cantidad" name="cantidad" type="number" class="form-control" placeholder="Cantidad en $" required>
                 </div>
                 <div class="mb-3">
                   <button class="btn btn-secondary">Agregar</button>
@@ -44,10 +48,10 @@
               </ul>
               <div class="alertas mt-4 px-3">
                 <div class="alert alert-primary">
-                  <p class="m-0">Presupuesto: $100</p>
+                  <p class="m-0">Presupuesto: $<span id="total"></span></p>
                 </div>
                 <div class="alert alert-success">
-                  <p class="m-0">Restante: $100</p>
+                  <p class="m-0">Restante: $<span id="restante"></span></p>
                 </div>
               </div>
             </div>
@@ -56,7 +60,7 @@
       </div>
     </div>
   </main>
-  <script src="../javascript/scripts.js"></script>
+  <script src="./javascript/scripts.js"></script>
 </body>
 
 </html>
